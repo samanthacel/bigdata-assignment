@@ -1,0 +1,127 @@
+{
+  "n_rows": 231685,
+  "n_cols": 10,
+  "exact_duplicate_rows": 0,
+  "columns": [
+    {
+      "kolom": "CaseNumber",
+      "jenis_terdeteksi": "numerik (ID/angka)",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 231685,
+      "contoh": "100101",
+      "top5": "100101 (1); 256419 (1); 256393 (1); 256394 (1); 256395 (1)"
+    },
+    {
+      "kolom": "SLAStatus",
+      "jenis_terdeteksi": "kategorikal",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 2,
+      "contoh": "WithinSLA",
+      "top5": "WithinSLA (227726); Breach (3959)"
+    },
+    {
+      "kolom": "ClosedDate",
+      "jenis_terdeteksi": "tanggal-waktu",
+      "non_null": 230680,
+      "null": 1005,
+      "null_pct": 0.43,
+      "unik": 127976,
+      "contoh": "06/03/2023 8:33",
+      "top5": "06/03/2023 11:27 (600); 06/03/2023 11:26 (402); 06/03/2023 11:29 (401); 06/03/2023 8:39 (401); 06/03/2023 8:50 (400)"
+    },
+    {
+      "kolom": "CreatedDate",
+      "jenis_terdeteksi": "tanggal-waktu",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 130598,
+      "contoh": "05/03/2023 19:27",
+      "top5": "27/12/2023 13:02 (175); 02/08/2023 11:45 (142); 05/03/2023 21:31 (142); 14/08/2023 15:12 (140); 05/03/2023 21:11 (136)"
+    },
+    {
+      "kolom": "Channel",
+      "jenis_terdeteksi": "kategorikal",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 2,
+      "contoh": "Case",
+      "top5": "Case (144317); Email (87368)"
+    },
+    {
+      "kolom": "Category",
+      "jenis_terdeteksi": "kategorikal",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 10,
+      "contoh": "General Inquiries",
+      "top5": "Sales (23317); General Inquiries (23288); Complaints (23261); Document Requests (23195); Lease/Rent Inquiries (23182)"
+    },
+    {
+      "kolom": "Status",
+      "jenis_terdeteksi": "kategorikal",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 5,
+      "contoh": "Closed",
+      "top5": "Closed (230680); In Progress (720); Open (157); Waiting Other Department (121); Waiting for Client (7)"
+    },
+    {
+      "kolom": "SubCategory",
+      "jenis_terdeteksi": "kategorikal",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 50,
+      "contoh": "Property Rules",
+      "top5": "Post-Sale Service (4751); Rent Payment (4732); Electrical (4732); Contact Information (4723); Sales Contract (4720)"
+    },
+    {
+      "kolom": "Type",
+      "jenis_terdeteksi": "kategorikal",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 4,
+      "contoh": "Inquiries",
+      "top5": "Inquiries (92837); Requests (92654); Complaints (23261); Feedback (22933)"
+    },
+    {
+      "kolom": "AssignedTo",
+      "jenis_terdeteksi": "kategorikal",
+      "non_null": 231685,
+      "null": 0,
+      "null_pct": 0.0,
+      "unik": 24,
+      "contoh": "Call Center",
+      "top5": "Call Center (171402); Lease Renewals (22124); Property Valuation (16069); Real Estate Support (4342); Real Estate Financial Reports (3638)"
+    }
+  ],
+  "date_hints": {
+    "ClosedDate": {
+      "bagian1_gt12": 0,
+      "bagian2_gt12": 0,
+      "contoh": [
+        "06/03/2023 8:33",
+        "06/03/2023 8:33",
+        "06/03/2023 8:33"
+      ]
+    },
+    "CreatedDate": {
+      "bagian1_gt12": 0,
+      "bagian2_gt12": 0,
+      "contoh": [
+        "05/03/2023 19:27",
+        "05/03/2023 19:27",
+        "05/03/2023 19:27"
+      ]
+    }
+  }
+}

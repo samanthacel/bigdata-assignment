@@ -1,0 +1,64 @@
+{
+  "n_raw": 231685,
+  "null_raw": {
+    "case_number": 0,
+    "sla_status": 0,
+    "closed_date": 1005,
+    "created_date": 0,
+    "channel": 0,
+    "category": 0,
+    "status": 0,
+    "subcategory": 0,
+    "case_type": 0,
+    "assigned_to": 0
+  },
+  "n_exact_duplicates": 0,
+  "date_format_detected": "dd/MM/yyyy (bagian1>12=17511, bagian2>12=0)",
+  "n_created_unparseable": 0,
+  "n_closed_unparseable": 0,
+  "n_quarantined": 0,
+  "casing_fixes": {
+    "sla_status": 0,
+    "status": 0,
+    "channel": 0,
+    "category": 0,
+    "subcategory": 0,
+    "case_type": 0,
+    "assigned_to": 0
+  },
+  "n_duplicate_case_number": 0,
+  "n_negative_duration": 0,
+  "n_closed_without_date": 0,
+  "n_open_with_closed_date": 0,
+  "n_outlier_resolution": 2487,
+  "p99_resolution_hours": 244.93,
+  "n_sla_unmapped": 0,
+  "sla_mapping": [
+    {
+      "sla_status_raw": "Breach",
+      "sla_status": "Breached SLA",
+      "count": 3959
+    },
+    {
+      "sla_status_raw": "WithinSLA",
+      "sla_status": "Within SLA",
+      "count": 227726
+    }
+  ],
+  "n_clean": 231685,
+  "dq_score_pct": 98.93,
+  "completeness_pct": {
+    "case_number": 100.0,
+    "sla_status": 100.0,
+    "closed_date": 99.57,
+    "created_date": 100.0,
+    "channel": 100.0,
+    "category": 100.0,
+    "status": 100.0,
+    "subcategory": 100.0,
+    "case_type": 100.0,
+    "assigned_to": 100.0,
+    "created_ts": 100.0,
+    "closed_ts": 99.57
+  }
+}

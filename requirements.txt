@@ -1,0 +1,6 @@
+boto3
+pymongo
+psycopg[binary]
+openpyxl
+tabulate
+kafka-python>=2.1

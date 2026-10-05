@@ -1,0 +1,166 @@
+{
+  "pipeline": [
+    {
+      "$match": {
+        "sla.within": {
+          "$ne": null
+        }
+      }
+    },
+    {
+      "$group": {
+        "_id": "$classification.category",
+        "cases": {
+          "$sum": 1
+        },
+        "within": {
+          "$sum": {
+            "$cond": [
+              "$sla.within",
+              1,
+              0
+            ]
+          }
+        },
+        "avg_res_h": {
+          "$avg": "$metrics.resolution_hours"
+        }
+      }
+    },
+    {
+      "$project": {
+        "cases": 1,
+        "avg_res_h": {
+          "$round": [
+            "$avg_res_h",
+            2
+          ]
+        },
+        "sla_compliance_pct": {
+          "$round": [
+            {
+              "$multiply": [
+                {
+                  "$divide": [
+                    "$within",
+                    "$cases"
+                  ]
+                },
+                100
+              ]
+            },
+            2
+          ]
+        }
+      }
+    },
+    {
+      "$sort": {
+        "cases": -1
+      }
+    }
+  ],
+  "result": [
+    {
+      "_id": "Sales",
+      "cases": 23317,
+      "avg_res_h": 119.34,
+      "sla_compliance_pct": 98.33
+    },
+    {
+      "_id": "General Inquiries",
+      "cases": 23288,
+      "avg_res_h": 119.54,
+      "sla_compliance_pct": 98.27
+    },
+    {
+      "_id": "Complaints",
+      "cases": 23261,
+      "avg_res_h": 119.31,
+      "sla_compliance_pct": 98.27
+    },
+    {
+      "_id": "Document Requests",
+      "cases": 23195,
+      "avg_res_h": 119.99,
+      "sla_compliance_pct": 98.19
+    },
+    {
+      "_id": "Lease/Rent Inquiries",
+      "cases": 23182,
+      "avg_res_h": 119.87,
+      "sla_compliance_pct": 98.38
+    },
+    {
+      "_id": "Property Management",
+      "cases": 23156,
+      "avg_res_h": 119.5,
+      "sla_compliance_pct": 98.19
+    },
+    {
+      "_id": "Utilities Management",
+      "cases": 23153,
+      "avg_res_h": 119.16,
+      "sla_compliance_pct": 98.33
+    },
+    {
+      "_id": "Maintenance Request",
+      "cases": 23150,
+      "avg_res_h": 118.93,
+      "sla_compliance_pct": 98.32
+    },
+    {
+      "_id": "Property Inquiry",
+      "cases": 23050,
+      "avg_res_h": 120.31,
+      "sla_compliance_pct": 98.45
+    },
+    {
+      "_id": "Feedback",
+      "cases": 22933,
+      "avg_res_h": 120.36,
+      "sla_compliance_pct": 98.18
+    }
+  ],
+  "sample_document": {
+    "_id": 100123,
+    "channel": "Case",
+    "classification": {
+      "category": "Document Requests",
+      "subcategory": "Lease Agreement",
+      "type": "Requests"
+    },
+    "assignment": {
+      "team": "Call Center"
+    },
+    "status": "Closed",
+    "is_closed": true,
+    "sla": {
+      "status": "Within SLA",
+      "status_raw": "WithinSLA",
+      "within": true
+    },
+    "created_at": "2023-03-05 19:28:00",
+    "closed_at": "2023-03-06 08:33:00",
+    "metrics": {
+      "resolution_hours": 13.0833
+    },
+    "timeline": [
+      {
+        "event": "CREATED",
+        "at": "2023-03-05 19:28:00",
+        "via": "Case"
+      },
+      {
+        "event": "ASSIGNED",
+        "to": "Call Center"
+      },
+      {
+        "event": "CLOSED",
+        "at": "2023-03-06 08:33:00"
+      }
+    ],
+    "dq_flags": [],
+    "notes": []
+  }
+}

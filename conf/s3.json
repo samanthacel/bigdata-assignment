@@ -1,0 +1,3 @@
+{"identities":[{"name":"admin",
+  "credentials":[{"accessKey":"minioadmin","secretKey":"minioadmin123"}],
+  "actions":["Admin","Read","Write","List","Tagging"]}]}
