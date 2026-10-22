@@ -1,10 +1,3 @@
-"""TAHAP 15 - Interval kepercayaan bootstrap untuk metrik data uji (Subbab 5.5).
-
-Membaca outputs/ml/predictions/*.csv (tidak butuh Spark). Resampling baris data uji dengan pengembalian
-(B kali) lalu menghitung PR-AUC, ROC-AUC, dan Recall@5% tiap model, serta selisih berpasangan
-(paired bootstrap) antara model terbaik Spark dan scikit-learn pada resample yang sama.
-Keluaran: outputs/ml/bootstrap_ci.json
-"""
 import json
 import os
 

@@ -1,4 +1,3 @@
-"""TAHAP 5 - Model dokumen (MongoDB): satu dokumen 'Case 360' per case."""
 from pymongo import ASCENDING, DESCENDING, MongoClient
 
 from common import DATASET, MONGO_URI, OUTPUT_DIR, get_spark, lake_path, write_json
@@ -22,7 +21,7 @@ def to_doc(r):
         "metrics": {"resolution_hours": r["resolution_hours_clean"]},
         "timeline": timeline,
         "dq_flags": [f for f in (r["dq_flags"] or "").split(",") if f],
-        "notes": [],  # di produksi: transkrip telepon, email, chat (data tidak terstruktur)
+        "notes": [],
     }
 
 

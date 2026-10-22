@@ -1,21 +1,16 @@
-"""TAHAP 12 - Perbandingan model Spark MLlib vs scikit-learn: tabel & grafik untuk Subbab 5.5-5.6.
-
-Membaca outputs/ml/metrics_*.json dan outputs/ml/predictions/*.csv (tidak butuh Spark).
-Keluaran: outputs/tables/ml_comparison.(md|csv), outputs/figures/fig_5_2..fig_5_5, outputs/ml/ml_report_values.md
-"""
 import json
 
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-import pandas as pd  # noqa: E402
-from scipy.stats import spearmanr  # noqa: E402
-from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve  # noqa: E402
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from scipy.stats import spearmanr
+from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve
 
-from common import FIG_DIR, TABLE_DIR  # noqa: E402
-from ml_common import LABEL, ML_DIR, PRED_DIR, idn  # noqa: E402
+from common import FIG_DIR, TABLE_DIR
+from ml_common import LABEL, ML_DIR, PRED_DIR, idn
 
 NAMES = {"logistic_regression": "Logistic Regression", "random_forest": "Random Forest",
          "gbt": "Gradient Boosting"}
@@ -55,7 +50,7 @@ def main():
 
     preds = {(r["short"], r["key"]): pd.read_csv(PRED_DIR / f"{r['short']}_{r['key']}.csv") for r in rows}
 
-    # --- Gambar 5.2: ROC & PR
+    # ROC & PR
     fig, ax = plt.subplots(1, 2, figsize=(13, 5.2))
     for (eng, k), p in preds.items():
         ls = "-" if eng == "spark" else "--"
@@ -76,7 +71,7 @@ def main():
     fig.savefig(FIG_DIR / "fig_5_2_roc_pr_curves.png", dpi=200)
     plt.close(fig)
 
-    # --- Gambar 5.3: perbandingan metrik & waktu latih
+    # perbandingan metrik & waktu latih
     fig, ax = plt.subplots(1, 3, figsize=(15, 4.6))
     x = np.arange(3)
     for j, (eng, off) in enumerate((("Spark MLlib", -0.2), ("scikit-learn", 0.2))):
@@ -101,7 +96,7 @@ def main():
     fig.savefig(FIG_DIR / "fig_5_3_metric_comparison.png", dpi=200)
     plt.close(fig)
 
-    # --- Gambar 5.4: kepentingan fitur
+    # kepentingan fitur
     fi_sp = pd.Series(sp["models"]["gbt"]["feature_importance"]).sort_values()
     fi_sk = pd.Series(sk["models"]["gbt"]["permutation_importance_pr_auc"]).sort_values()
     fig, ax = plt.subplots(1, 2, figsize=(13, 5))
@@ -116,7 +111,7 @@ def main():
     fig.savefig(FIG_DIR / "fig_5_4_feature_importance.png", dpi=200)
     plt.close(fig)
 
-    # --- Gambar 5.5: cumulative gain + confusion matrix model terbaik Spark
+    # cumulative gain + confusion matrix model terbaik Spark
     best_sp = sp["best_by_valid"]
     p = preds[("spark", best_sp)].sort_values("p", ascending=False).reset_index(drop=True)
     gain = p[LABEL].cumsum() / p[LABEL].sum()
@@ -147,7 +142,7 @@ def main():
     fig.savefig(FIG_DIR / "fig_5_5_gain_confusion.png", dpi=200)
     plt.close(fig)
 
-    # --- konsistensi skor antar engine (algoritma sama)
+    # konsistensi skor antar engine (algoritma sama)
     agree = {}
     for k in NAMES:
         a = preds[("spark", k)].set_index("case_number")["p"]

@@ -1,20 +1,13 @@
-"""TAHAP 9 - Silver -> dataset Machine Learning (Gold): prediksi risiko pelanggaran SLA.
-
-Setiap baris = satu case. Fitur hanya memakai informasi yang SUDAH tersedia saat case dibuat
-(created_ts), sehingga model dapat dipakai sebagai peringatan dini. Kolom pasca-kejadian
-(closed_ts, resolution_hours, status, ...) dibuang untuk mencegah kebocoran label.
-Keluaran: lake/gold/ml_sla_features (Parquet) + outputs/ml/dataset_summary.json + gambar 5.1.
-"""
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
 
-from common import DATASET, FIG_DIR, TABLE_DIR, ensure_dirs, get_spark, lake_path, sync_layer  # noqa: E402
-from ml_common import (CAT_FEATURES, LABEL, LEAKY_COLUMNS, LOAD_FEATURES, ML_DATASET, ML_DIR,  # noqa: E402
+from common import DATASET, FIG_DIR, TABLE_DIR, ensure_dirs, get_spark, lake_path, sync_layer
+from ml_common import (CAT_FEATURES, LABEL, LEAKY_COLUMNS, LOAD_FEATURES, ML_DATASET, ML_DIR,
                        NUM_FEATURES, TRAIN_PCT, VALID_PCT, idn, save_json)
-from pyspark.sql import Window as W  # noqa: E402
-from pyspark.sql import functions as F  # noqa: E402
+from pyspark.sql import Window as W
+from pyspark.sql import functions as F
 
 DAY = {1: "Min", 2: "Sen", 3: "Sel", 4: "Rab", 5: "Kam", 6: "Jum", 7: "Sab"}
 C1, C2 = "#1F4E79", "#C00000"
@@ -30,13 +23,13 @@ def main():
     df = (s.where(F.col("is_within_sla").isNotNull() & F.col("created_ts").isNotNull())
            .withColumn(LABEL, (1 - F.col("is_within_sla")).cast("double"))
            .withColumn("ts", F.col("created_ts").cast("long"))
-           # --- fitur waktu
+           # fitur waktu
            .withColumn("is_weekend", F.col("created_dow").isin(1, 7).cast("int"))
            .withColumn("is_business_hour",
                        ((F.col("created_hour") >= 9) & (F.col("created_hour") < 17)
                         & ~F.col("created_dow").isin(1, 7)).cast("int")))
 
-    # --- fitur beban kerja (window function; hanya melihat ke BELAKANG, tanpa melihat masa depan)
+    # fitur beban kerja (window function; hanya melihat ke BELAKANG, tanpa melihat masa depan)
     one = F.lit(1)
     w_batch = W.partitionBy("created_ts")                                        # case dgn cap waktu sama
     w_team = W.partitionBy("assigned_to").orderBy("ts").rangeBetween(-86400, -1)  # tim, 24 jam terakhir
@@ -47,7 +40,7 @@ def main():
             .withColumn("all_load_1h", F.count(one).over(w_1h))
             .withColumn("all_load_7d", F.count(one).over(w_7d)))
 
-    # --- pembagian train/valid/test deterministik (CRC32 nomor case)
+    # pembagian train/valid/test deterministik (CRC32 nomor case)
     bucket = F.pmod(F.crc32(F.col("case_number").cast("string")), F.lit(100))
     df = df.withColumn("split", F.when(bucket < TRAIN_PCT, "train")
                                  .when(bucket < TRAIN_PCT + VALID_PCT, "valid").otherwise("test"))
@@ -88,7 +81,7 @@ def main():
     rows.append(f"| total | {idn(n, 0)} | {idn(pos, 0)} | {idn(100 * pos / n)}% |")
     (TABLE_DIR / "ml_dataset_split.md").write_text("\n".join(rows), encoding="utf-8")
 
-    # --- Gambar 5.1: rasio breach per fitur kandidat (motivasi feature engineering)
+    # rasio breach per fitur kandidat (motivasi feature engineering)
     fig, ax = plt.subplots(2, 2, figsize=(12, 8))
     h = ml.groupBy("created_hour").agg(F.avg(LABEL).alias("r")).orderBy("created_hour").toPandas()
     ax[0, 0].bar(h.created_hour, 100 * h.r, color=C1)

@@ -1,4 +1,3 @@
-"""(Opsional) Simulasi sumber streaming: replay case sebagai event JSON ke Kafka."""
 import argparse
 import json
 import time

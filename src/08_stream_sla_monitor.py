@@ -1,4 +1,3 @@
-"""(Opsional) Spark Structured Streaming: monitor kepatuhan SLA per menit + sink ke Bronze."""
 import argparse
 
 import pyspark

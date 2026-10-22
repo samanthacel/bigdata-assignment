@@ -1,6 +1,3 @@
-"""TAHAP 3 - Pembersihan & organisasi data (Bronze -> Silver) dengan PySpark.
-Output: lake/silver/customer_care (Parquet, partisi created_ym), lake/quarantine/customer_care,
-        outputs/dq_report.json"""
 import re
 
 from common import (DATASET, OUTPUT_DIR, REQUIRED, USE_S3A, get_spark, lake_path,

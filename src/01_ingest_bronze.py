@@ -1,5 +1,3 @@
-"""TAHAP 1 - Data ingestion (batch): file Kaggle -> Bronze layer (lokal + MinIO).
-Bronze bersifat immutable: file asli disimpan apa adanya + salinan CSV UTF-8 + manifest."""
 import hashlib
 import shutil
 import sys

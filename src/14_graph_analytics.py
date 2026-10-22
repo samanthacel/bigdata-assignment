@@ -1,25 +1,16 @@
-"""TAHAP 14 - Graph analytics: jaringan penugasan Tim <-> Subkategori <-> Kategori.
-
-1) Spark membangun daftar simpul & sisi (agregasi 231.685 case dari Silver).
-2) PageRank terbobot dihitung secara SCALABLE dengan Spark DataFrame (iteratif join; pola yang sama
-   dengan GraphFrames/GraphX), lalu divalidasi dengan NetworkX.
-3) NetworkX: statistik graf, sentralitas, deteksi komunitas Louvain, kemiripan tim (cosine),
-   dan deteksi 'hotspot' sisi tim-subkategori dengan rasio breach signifikan (Wilson lower bound).
-Keluaran: outputs/graph/*.csv|json, outputs/figures/fig_6_*.png
-"""
 import math
 
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import networkx as nx  # noqa: E402
-import numpy as np  # noqa: E402
-import pandas as pd  # noqa: E402
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+import pandas as pd
 
-from common import DATASET, FIG_DIR, OUTPUT_DIR, TABLE_DIR, get_spark, lake_path  # noqa: E402
-from ml_common import idn, save_json  # noqa: E402
-from pyspark.sql import functions as F  # noqa: E402
+from common import DATASET, FIG_DIR, OUTPUT_DIR, TABLE_DIR, get_spark, lake_path
+from ml_common import idn, save_json
+from pyspark.sql import functions as F
 
 GRAPH_DIR = OUTPUT_DIR / "graph"
 DAMPING, ITER = 0.85, 40
@@ -67,7 +58,7 @@ def main():
     s = (spark.read.parquet(lake_path("silver", DATASET))
          .withColumn("breach", (1 - F.col("is_within_sla")).cast("int")))
 
-    # ---------------------------------------------------------------- 1) simpul & sisi (Spark)
+    # nodes & edges
     e_ts = (s.groupBy("assigned_to", "subcategory")
              .agg(F.count("*").alias("cases"), F.sum("breach").alias("breaches"),
                   F.avg("resolution_hours_clean").alias("avg_hours"))
@@ -99,7 +90,7 @@ def main():
     nodes.to_csv(GRAPH_DIR / "nodes.csv", index=False)
     edges.to_csv(GRAPH_DIR / "edges.csv", index=False)
 
-    # ---------------------------------------------------------------- 2) PageRank Spark + validasi
+    # PageRank Spark + validasi
     pr_breach_sp, deltas = spark_pagerank(spark, e_ts, "breaches")
     pr_vol_sp, _ = spark_pagerank(spark, e_ts, "cases")
     B = nx.Graph()
@@ -111,7 +102,7 @@ def main():
     pr_vol_nx = pd.Series(nx.pagerank(B, alpha=DAMPING, weight="cases", tol=1e-12, max_iter=500))
     max_diff = float((pr_breach_sp - pr_breach_nx.reindex(pr_breach_sp.index)).abs().max())
 
-    # ---------------------------------------------------------------- 3) analitik NetworkX
+    # analitik NetworkX
     teams = [n_ for n_ in B if n_.startswith("T:")]
     subs = [n_ for n_ in B if n_.startswith("S:")]
     deg = dict(B.degree())
@@ -201,8 +192,7 @@ def main():
                   f"{idn(r.risk_concentration)}x | {int(r.degree)} |")
     (TABLE_DIR / "graph_team_centrality.md").write_text("\n".join(md), encoding="utf-8")
 
-    # ---------------------------------------------------------------- 4) gambar
-    # 6.1 jaringan bipartit penuh
+    # jaringan bipartit penuh
     fig, ax = plt.subplots(figsize=(13, 9))
     pos = nx.spring_layout(B, weight=None, seed=7, k=0.35)
     ew = np.array([B[u][v]["cases"] for u, v in B.edges()])
@@ -222,7 +212,7 @@ def main():
     fig.savefig(FIG_DIR / "fig_6_1_bipartite_network.png", dpi=200)
     plt.close(fig)
 
-    # 6.2 PageRank breach vs volume (tim)
+    # PageRank breach vs volume (tim)
     d = tm.head(12).iloc[::-1]
     fig, ax = plt.subplots(figsize=(10, 5.5))
     y = np.arange(len(d))
@@ -241,7 +231,7 @@ def main():
     fig.savefig(FIG_DIR / "fig_6_2_pagerank_teams.png", dpi=200)
     plt.close(fig)
 
-    # 6.3 heatmap kemiripan cosine antar tim
+    # heatmap kemiripan cosine antar tim
     fig, ax = plt.subplots(figsize=(10, 8.5))
     im = ax.imshow(cos.values, cmap="viridis", vmin=0, vmax=1)
     ax.set_xticks(range(len(cos)), cos.index, rotation=90, fontsize=7)
@@ -252,7 +242,7 @@ def main():
     fig.savefig(FIG_DIR / "fig_6_3_team_similarity.png", dpi=200)
     plt.close(fig)
 
-    # 6.4 subgraf hotspot
+    # subgraf hotspot
     H = nx.Graph()
     for r in hs.itertuples():
         H.add_edge("T:" + r.assigned_to, "S:" + r.subcategory, w=r.breaches, rate=r.breach_rate)

@@ -1,21 +1,14 @@
-"""TAHAP 13 - Uji skalabilitas: waktu latih Logistic Regression Spark MLlib vs scikit-learn
-ketika data latih direplikasi 1x, 2x, 4x, 8x (default; atur via env SCALE_FACTORS="1,2,4,8").
-
-Replikasi tidak menambah informasi baru; tujuannya hanya mensimulasikan volume data yang membesar
-untuk melihat kecenderungan waktu latih pada kedua pendekatan.
-Keluaran: outputs/ml/scale_test.json, outputs/figures/fig_5_6_scale_test.png
-"""
 import os
 import time
 
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import pandas as pd  # noqa: E402
+import matplotlib.pyplot as plt
+import pandas as pd
 
-from common import FIG_DIR, LAKE_DIR, get_spark, lake_path  # noqa: E402
-from ml_common import LABEL, ML_DATASET, ML_DIR, RAW_FEATURES, save_json  # noqa: E402
+from common import FIG_DIR, LAKE_DIR, get_spark, lake_path
+from ml_common import LABEL, ML_DATASET, ML_DIR, RAW_FEATURES, save_json
 
 FACTORS = [int(x) for x in os.environ.get("SCALE_FACTORS", "1,2,4,8").split(",")]
 
@@ -31,7 +24,7 @@ def main():
         pdf[c] = pdf[c].astype(str)
     out = []
     for k in FACTORS:
-        # ---- Spark MLlib (prep pipeline + LR)
+        # Spark MLlib (prep pipeline + LR)
         df = base.crossJoin(spark.range(k).withColumnRenamed("id", "rep")).drop("rep")
         df, _ = spec_sp.add_weights(df)
         df = df.cache()
@@ -41,7 +34,7 @@ def main():
         spec_sp.make_model("logistic_regression", {"regParam": 0.0}).fit(prep.transform(df))
         t_spark = time.perf_counter() - t0
         df.unpersist()
-        # ---- scikit-learn (pipeline sama: OHE + LR)
+        # scikit-learn (pipeline sama: OHE + LR)
         big = pd.concat([pdf] * k, ignore_index=True)
         mem = big.memory_usage(deep=True).sum() / 2**20
         t0 = time.perf_counter()

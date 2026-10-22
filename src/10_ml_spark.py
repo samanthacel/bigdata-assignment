@@ -1,12 +1,3 @@
-"""TAHAP 10 - Pengembangan model DENGAN Spark MLlib (terdistribusi).
-
-Model: Logistic Regression, Random Forest, Gradient-Boosted Trees.
-- Pipeline MLlib: SQLTransformer (log1p) -> StringIndexer -> OneHotEncoder -> VectorAssembler -> model
-- Ketidakseimbangan kelas ditangani dengan bobot kelas 'balanced' (weightCol).
-- Hiperparameter dipilih pada data validasi (PR-AUC), ambang keputusan dipilih pada validasi (F1 maks),
-  lalu dievaluasi SEKALI pada data uji. Ditambah uji out-of-time (latih < Mar 2024, uji >= Mar 2024).
-Keluaran: outputs/ml/metrics_spark.json, outputs/ml/predictions/spark_*.csv, lake/models/spark_*
-"""
 import itertools
 import time
 
@@ -23,8 +14,8 @@ from pyspark.sql import functions as F
 IDX = [f"{c}_idx" for c in CAT_FEATURES]
 OHE = [f"{c}_ohe" for c in CAT_FEATURES]
 LOG = [f"log_{c}" for c in LOAD_FEATURES]
-TREE_INPUTS = IDX + BIN_FEATURES + LOG          # trees: kategori ter-indeks (split kategorikal)
-LINEAR_INPUTS = OHE + BIN_FEATURES + LOG        # linear: one-hot
+TREE_INPUTS = IDX + BIN_FEATURES + LOG
+LINEAR_INPUTS = OHE + BIN_FEATURES + LOG
 
 GRID = {
     "logistic_regression": {"regParam": [0.0, 0.001, 0.01]},
@@ -59,7 +50,7 @@ def make_model(name, params):
 
 
 def add_weights(df):
-    """Bobot 'balanced' = n / (2 * n_kelas), sama dengan class_weight='balanced' di scikit-learn."""
+    # Bobot 'balanced' = n / (2 * n_kelas), sama dengan class_weight='balanced' di scikit-learn.
     c = {int(r[LABEL]): r["count"] for r in df.groupBy(LABEL).count().collect()}
     n = sum(c.values())
     w0, w1 = n / (2 * c[0]), n / (2 * c[1])
@@ -142,7 +133,7 @@ def main():
             results[name]["feature_importance"] = dict(sorted(
                 {raw[i]: float(imp[i]) for i in range(len(raw))}.items(), key=lambda x: -x[1]))
 
-    # --- uji out-of-time untuk model terbaik (berdasarkan PR-AUC validasi)
+    # uji out-of-time untuk model terbaik (berdasarkan PR-AUC validasi)
     best_name = max(results, key=lambda k: results[k]["valid_pr_auc"])
     params = results[best_name]["best_params"]
     tr_raw = data.where(F.col("created_ts") < F.lit(OOT_CUTOFF))

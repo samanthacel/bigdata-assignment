@@ -1,10 +1,3 @@
-"""TAHAP 11 - Pengembangan model TANPA Spark MLlib (single-node: pandas + scikit-learn).
-
-Memakai dataset, fitur, pembagian data, bobot kelas, prosedur tuning, dan metrik yang SAMA dengan
-skrip 10 sehingga perbandingan Spark MLlib vs scikit-learn adil.
-Model: Logistic Regression, Random Forest, HistGradientBoosting (padanan GBT di scikit-learn).
-Keluaran: outputs/ml/metrics_sklearn.json, outputs/ml/predictions/sklearn_*.csv, lake/models/sklearn_*.joblib
-"""
 import itertools
 import time
 
@@ -26,7 +19,7 @@ from ml_common import (BIN_FEATURES, CAT_FEATURES, LABEL, LOAD_FEATURES, ML_DATA
 GRID = {
     "logistic_regression": {"C": [100.0, 1.0, 0.01]},
     "random_forest": {"max_depth": [8, 12]},
-    "gbt": {"max_depth": [4, 6]},          # HistGradientBoostingClassifier
+    "gbt": {"max_depth": [4, 6]},
 }
 log1p = FunctionTransformer(np.log1p, feature_names_out="one-to-one")
 
@@ -78,7 +71,7 @@ def hgb_subset(cats, nums, max_depth):
 
 
 def load():
-    df = pd.read_parquet(LAKE_DIR / "gold" / ML_DATASET)           # baca Parquet dengan pyarrow
+    df = pd.read_parquet(LAKE_DIR / "gold" / ML_DATASET)
     for c in CAT_FEATURES:
         df[c] = df[c].astype(str)
     df[LABEL] = df[LABEL].astype(int)
@@ -153,7 +146,7 @@ def main():
            "lift_at_5pct": ev["lift_at_5pct"]}
     print(f"[OOT] {best_name}: ROC-AUC={oot['roc_auc']:.4f} PR-AUC={oot['pr_auc']:.4f}")
 
-    # --- studi ablasi kelompok fitur (HistGB, hiperparameter terbaik)
+    # studi ablasi kelompok fitur (HistGB, hiperparameter terbaik)
     depth = results["gbt"]["best_params"]["max_depth"]
     ablation = []
     for label, (cats, nums) in ABLATION.items():

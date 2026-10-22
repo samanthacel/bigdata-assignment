@@ -1,10 +1,9 @@
-"""TAHAP 6 - Analisis deskriptif, grafik, dan nilai placeholder untuk laporan Bab 4."""
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
 
-from common import (DATASET, FIG_DIR, OUTPUT_DIR, REQUIRED, TABLE_DIR, ensure_dirs,  # noqa: E402
+from common import (DATASET, FIG_DIR, OUTPUT_DIR, REQUIRED, TABLE_DIR, ensure_dirs,
                     get_spark, lake_path, latest_manifest, read_json, write_json)
 from pyspark.sql import functions as F  # noqa: E402
 

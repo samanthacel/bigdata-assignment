@@ -1,4 +1,3 @@
-"""TAHAP 2 - Profiling data mentah: identifikasi elemen, tipe, format, kelengkapan."""
 import re
 
 import pandas as pd

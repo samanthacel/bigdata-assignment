@@ -1,4 +1,3 @@
-"""TAHAP 4 - Silver -> Gold: star schema (Parquet) + load ke PostgreSQL data warehouse."""
 import psycopg
 
 from common import (DATASET, PG, PG_JDBC_URL, POSTGRES_JDBC_PACKAGE, PROJECT_DIR, get_spark,
