@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 set -euo pipefail
 mkdir -p src sql data/raw lake outputs
 

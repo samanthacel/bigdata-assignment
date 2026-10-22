@@ -1,0 +1,287 @@
+{
+  "engine": "Spark MLlib",
+  "spark_version": "4.2.0",
+  "master": "local[*]",
+  "default_parallelism": 8,
+  "prep_fit_sec": 1.6609910839999884,
+  "class_weights": {
+    "w0": 0.5087108669476219,
+    "w1": 29.199784017278617
+  },
+  "n_linear_features": 134,
+  "n_tree_features": 13,
+  "models": {
+    "logistic_regression": {
+      "engine": "Spark MLlib",
+      "best_params": {
+        "regParam": 0.0
+      },
+      "fit_sec": 7.059475668999994,
+      "predict_sec": 0.08797979200016925,
+      "valid_pr_auc": 0.2007410423939714,
+      "spark_native_test_roc_auc": 0.7972661405582159,
+      "test": {
+        "n": 46202,
+        "positives": 785,
+        "base_rate": 0.0169906064672525,
+        "roc_auc": 0.7972662667771222,
+        "pr_auc": 0.19913745393997365,
+        "threshold": 0.9432529969564851,
+        "precision": 0.5617529880478087,
+        "recall": 0.17961783439490445,
+        "f1": 0.2722007722007722,
+        "accuracy": 0.983680360157569,
+        "tp": 141,
+        "fp": 110,
+        "fn": 644,
+        "tn": 45307,
+        "precision_at_5pct": 0.09826839826839827,
+        "recall_at_5pct": 0.289171974522293,
+        "lift_at_5pct": 5.783689855791767
+      },
+      "top_coefficients": [
+        [
+          "assigned_to_ohe_Property Appraisal",
+          6.092338369920679
+        ],
+        [
+          "assigned_to_ohe_Facility Management",
+          4.496625863516893
+        ],
+        [
+          "assigned_to_ohe_Home Buying Assistance",
+          4.055935352527638
+        ],
+        [
+          "assigned_to_ohe_Real Estate Consulting",
+          3.756833562714129
+        ],
+        [
+          "assigned_to_ohe_Property Leasing",
+          3.472615209541093
+        ],
+        [
+          "assigned_to_ohe_Tenant Relations",
+          3.395234144236743
+        ],
+        [
+          "assigned_to_ohe_Lease Administration",
+          3.3697404602555734
+        ],
+        [
+          "assigned_to_ohe_Finance Department",
+          2.970465560966754
+        ],
+        [
+          "assigned_to_ohe_Property Sales",
+          2.449639632769661
+        ],
+        [
+          "assigned_to_ohe_Lease Renewals",
+          -2.421573926041037
+        ],
+        [
+          "assigned_to_ohe_Real Estate Events",
+          2.0174994481955597
+        ],
+        [
+          "assigned_to_ohe_Real Estate Support",
+          -2.012915601809908
+        ],
+        [
+          "created_hour_ohe_4",
+          -1.4314528797177257
+        ],
+        [
+          "created_hour_ohe_6",
+          -1.3010930189831966
+        ],
+        [
+          "assigned_to_ohe_Real Estate Sales",
+          1.1077321555117845
+        ],
+        [
+          "assigned_to_ohe_Property Management",
+          -1.078202323729032
+        ],
+        [
+          "assigned_to_ohe_Property Procurement",
+          1.035793998240086
+        ],
+        [
+          "assigned_to_ohe_Property Valuation",
+          -1.0029380968558377
+        ],
+        [
+          "created_hour_ohe_3",
+          -0.9885764626372945
+        ],
+        [
+          "assigned_to_ohe_Building Maintenance",
+          0.9769448938755045
+        ]
+      ]
+    },
+    "random_forest": {
+      "engine": "Spark MLlib",
+      "best_params": {
+        "maxDepth": 8
+      },
+      "fit_sec": 11.523388588999978,
+      "predict_sec": 0.7078730420000738,
+      "valid_pr_auc": 0.1668064523899143,
+      "spark_native_test_roc_auc": 0.834185507292718,
+      "test": {
+        "n": 46202,
+        "positives": 785,
+        "base_rate": 0.0169906064672525,
+        "roc_auc": 0.8341843713225595,
+        "pr_auc": 0.17680624092308525,
+        "threshold": 0.7666387981754014,
+        "precision": 0.41479099678456594,
+        "recall": 0.1643312101910828,
+        "f1": 0.2354014598540146,
+        "accuracy": 0.9818622570451495,
+        "tp": 129,
+        "fp": 182,
+        "fn": 656,
+        "tn": 45235,
+        "precision_at_5pct": 0.12164502164502164,
+        "recall_at_5pct": 0.3579617834394904,
+        "lift_at_5pct": 7.159545592411835
+      },
+      "feature_importance": {
+        "team_load_24h": 0.3200352369249109,
+        "all_load_7d": 0.16258708212650702,
+        "batch_size": 0.13125920049402592,
+        "subcategory": 0.09927119233961251,
+        "all_load_1h": 0.0902938456848423,
+        "assigned_to": 0.08894721638947516,
+        "created_hour": 0.04439897955329714,
+        "created_dow": 0.025270502873736427,
+        "channel": 0.013777399056529456,
+        "category": 0.01026444482297844,
+        "is_weekend": 0.007432284298698316,
+        "is_business_hour": 0.005282631511147547,
+        "case_type": 0.0011799839242389012
+      }
+    },
+    "gbt": {
+      "engine": "Spark MLlib",
+      "best_params": {
+        "maxDepth": 6
+      },
+      "fit_sec": 26.199648303999993,
+      "predict_sec": 0.30009629200003474,
+      "valid_pr_auc": 0.22710032257246549,
+      "spark_native_test_roc_auc": 0.8189634931447004,
+      "test": {
+        "n": 46202,
+        "positives": 785,
+        "base_rate": 0.0169906064672525,
+        "roc_auc": 0.8189747546760249,
+        "pr_auc": 0.21165703368261696,
+        "threshold": 0.8636684118158463,
+        "precision": 0.41545893719806765,
+        "recall": 0.21910828025477708,
+        "f1": 0.28690575479566305,
+        "accuracy": 0.9814943076057313,
+        "tp": 172,
+        "fp": 242,
+        "fn": 613,
+        "tn": 45175,
+        "precision_at_5pct": 0.1264069264069264,
+        "recall_at_5pct": 0.3719745222929936,
+        "lift_at_5pct": 7.43981250172333
+      },
+      "feature_importance": {
+        "subcategory": 0.3586049142711148,
+        "assigned_to": 0.14297186781830448,
+        "created_hour": 0.12506277253369721,
+        "all_load_7d": 0.0994347417290356,
+        "team_load_24h": 0.0791655749896552,
+        "batch_size": 0.07683109578680729,
+        "all_load_1h": 0.04826863065230392,
+        "created_dow": 0.04205476665492448,
+        "channel": 0.02724351413452741,
+        "category": 0.00034849395314760984,
+        "case_type": 1.2693161796025093e-05,
+        "is_business_hour": 9.34314686032243e-07,
+        "is_weekend": 0.0
+      }
+    }
+  },
+  "best_by_valid": "gbt",
+  "out_of_time": {
+    "model": "gbt",
+    "params": {
+      "maxDepth": 6
+    },
+    "cutoff": "2024-03-01",
+    "train_rows": 184183,
+    "test_rows": 47502,
+    "roc_auc": 0.6008009551227759,
+    "pr_auc": 0.11123709972203881,
+    "base_rate": 0.035493242389794115,
+    "recall_at_5pct": 0.11743772241992882,
+    "lift_at_5pct": 2.3488533433227197
+  },
+  "tuning": [
+    {
+      "engine": "spark",
+      "model": "logistic_regression",
+      "regParam": 0.0,
+      "fit_sec": 7.059475668999994,
+      "valid_pr_auc": 0.2007410423939714,
+      "valid_roc_auc": 0.7902035937195435
+    },
+    {
+      "engine": "spark",
+      "model": "logistic_regression",
+      "regParam": 0.001,
+      "fit_sec": 3.9769070849999935,
+      "valid_pr_auc": 0.1968604212327182,
+      "valid_roc_auc": 0.7903349780127447
+    },
+    {
+      "engine": "spark",
+      "model": "logistic_regression",
+      "regParam": 0.01,
+      "fit_sec": 2.8050330010000835,
+      "valid_pr_auc": 0.1889502372660917,
+      "valid_roc_auc": 0.7906771959740935
+    },
+    {
+      "engine": "spark",
+      "model": "random_forest",
+      "maxDepth": 8,
+      "fit_sec": 11.523388588999978,
+      "valid_pr_auc": 0.1668064523899143,
+      "valid_roc_auc": 0.8177807590630852
+    },
+    {
+      "engine": "spark",
+      "model": "random_forest",
+      "maxDepth": 12,
+      "fit_sec": 26.24904951199983,
+      "valid_pr_auc": 0.16238748581759832,
+      "valid_roc_auc": 0.8118237686893881
+    },
+    {
+      "engine": "spark",
+      "model": "gbt",
+      "maxDepth": 4,
+      "fit_sec": 19.443465383000103,
+      "valid_pr_auc": 0.22418988166404272,
+      "valid_roc_auc": 0.8292564422503599
+    },
+    {
+      "engine": "spark",
+      "model": "gbt",
+      "maxDepth": 6,
+      "fit_sec": 26.199648303999993,
+      "valid_pr_auc": 0.22710032257246549,
+      "valid_roc_auc": 0.8162374632422329
+    }
+  ]
+}

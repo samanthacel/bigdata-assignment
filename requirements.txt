@@ -4,3 +4,5 @@ psycopg[binary]
 openpyxl
 tabulate
 kafka-python>=2.1
+networkx
+scikit-learn

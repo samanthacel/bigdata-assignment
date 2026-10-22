@@ -1,0 +1,85 @@
+id,label,type,category,cases,breaches,breach_rate
+T:Real Estate Advisory,Real Estate Advisory,team,,272,22,0.08088235294117647
+T:Property Management,Property Management,team,,3435,68,0.019796215429403203
+T:Property Procurement,Property Procurement,team,,363,35,0.09641873278236915
+T:Lease Renewals,Lease Renewals,team,,22124,88,0.0039775809076116435
+T:Property Valuation,Property Valuation,team,,16069,247,0.015371211649760408
+T:Call Center,Call Center,team,,171402,2249,0.01312120045273684
+T:Real Estate Support,Real Estate Support,team,,4342,43,0.009903270382312299
+T:Home Buying Assistance,Home Buying Assistance,team,,8,6,0.75
+T:Property Appraisal,Property Appraisal,team,,4,4,1.0
+T:Real Estate Financial Reports,Real Estate Financial Reports,team,,3638,119,0.03271028037383177
+T:Facility Management,Facility Management,team,,12,11,0.9166666666666666
+T:Tenant Relations,Tenant Relations,team,,29,23,0.7931034482758621
+T:Property Sales,Property Sales,team,,13,8,0.6153846153846154
+T:Real Estate Events,Real Estate Events,team,,27,6,0.2222222222222222
+T:Building Maintenance,Building Maintenance,team,,182,34,0.18681318681318682
+T:Property Documentation,Property Documentation,team,,3369,85,0.02523003858711784
+T:Property Leasing,Property Leasing,team,,404,304,0.7524752475247525
+T:Real Estate Compliance,Real Estate Compliance,team,,1092,121,0.1108058608058608
+T:Finance Department,Finance Department,team,,306,169,0.5522875816993464
+T:Real Estate Sales,Real Estate Sales,team,,583,143,0.24528301886792453
+T:Property Investment,Property Investment,team,,3620,101,0.027900552486187846
+T:Real Estate Consulting,Real Estate Consulting,team,,12,11,0.9166666666666666
+T:Lease Administration,Lease Administration,team,,57,44,0.7719298245614035
+T:Home Inspections,Home Inspections,team,,322,18,0.055900621118012424
+S:Availability,Availability,subcategory,Property Inquiry,4587,68,0.014824504033137127
+S:Parking,Parking,subcategory,General Inquiries,4636,77,0.016609145815358068
+S:Maintenance Delays,Maintenance Delays,subcategory,Complaints,4683,88,0.018791373051462737
+S:Negotiation,Negotiation,subcategory,Sales,4703,81,0.01722304911758452
+S:HVAC,HVAC,subcategory,Maintenance Request,4587,75,0.016350555918901243
+S:Termination,Termination,subcategory,Lease/Rent Inquiries,4592,54,0.011759581881533102
+S:Initial Contact,Initial Contact,subcategory,Sales,4630,73,0.015766738660907127
+S:Pricing,Pricing,subcategory,Property Inquiry,4543,71,0.015628439357252916
+S:Negative,Negative,subcategory,Feedback,4633,83,0.017914957910641054
+S:Property Deeds,Property Deeds,subcategory,Document Requests,4593,84,0.018288700195950358
+S:Property Rules,Property Rules,subcategory,General Inquiries,4659,72,0.015453960077269801
+S:Landscaping,Landscaping,subcategory,Maintenance Request,4611,72,0.015614834092387769
+S:Rent Payment,Rent Payment,subcategory,Lease/Rent Inquiries,4732,78,0.016483516483516484
+S:Follow-up,Follow-up,subcategory,Sales,4643,72,0.015507215162610381
+S:Website/App Experience,Website/App Experience,subcategory,Feedback,4559,79,0.017328361482781312
+S:Amenities Issues,Amenities Issues,subcategory,Complaints,4645,86,0.018514531754574813
+S:Amenities,Amenities,subcategory,Property Inquiry,4633,77,0.01661990071228146
+S:Internet/Cable,Internet/Cable,subcategory,Utilities Management,4604,85,0.0184622067767159
+S:Trash Collection,Trash Collection,subcategory,Utilities Management,4568,71,0.015542907180385288
+S:Property Inspection,Property Inspection,subcategory,Property Management,4567,69,0.015108386249178892
+S:Post-Sale Service,Post-Sale Service,subcategory,Sales,4751,96,0.0202062723637129
+S:Pets Policy,Pets Policy,subcategory,General Inquiries,4653,91,0.01955727487642381
+S:Lease Agreement,Lease Agreement,subcategory,Document Requests,4701,88,0.01871942139970219
+S:Rent Collection,Rent Collection,subcategory,Property Management,4656,91,0.0195446735395189
+S:Lease Renewal,Lease Renewal,subcategory,Lease/Rent Inquiries,4657,87,0.018681554648915612
+S:Tenant Screening,Tenant Screening,subcategory,Property Management,4613,81,0.01755907218729677
+S:Office Hours,Office Hours,subcategory,General Inquiries,4617,73,0.0158111327701971
+S:Floor Plans,Floor Plans,subcategory,Property Inquiry,4613,68,0.014740949490570128
+S:Location,Location,subcategory,Property Inquiry,4674,74,0.015832263585793753
+S:Noise,Noise,subcategory,Complaints,4666,82,0.017573939134162022
+S:Water,Water,subcategory,Utilities Management,4644,85,0.01830318690783807
+S:Service Quality,Service Quality,subcategory,Feedback,4553,86,0.018888644849549746
+S:Payment Receipts,Payment Receipts,subcategory,Document Requests,4612,76,0.01647875108412836
+S:Sales Contract,Sales Contract,subcategory,Document Requests,4720,89,0.01885593220338983
+S:Rent Increase,Rent Increase,subcategory,Lease/Rent Inquiries,4553,71,0.015594113771139909
+S:Neighbors,Neighbors,subcategory,Complaints,4626,66,0.014267185473411154
+S:Security,Security,subcategory,Complaints,4641,81,0.017453135100193924
+S:Gas,Gas,subcategory,Utilities Management,4680,67,0.014316239316239316
+S:Closing,Closing,subcategory,Sales,4590,67,0.014596949891067539
+S:Electrical,Electrical,subcategory,Maintenance Request,4732,86,0.018174133558748945
+S:Maintenance Coordination,Maintenance Coordination,subcategory,Property Management,4665,81,0.017363344051446947
+S:Maintenance Records,Maintenance Records,subcategory,Document Requests,4569,82,0.017947034362004816
+S:Electricity,Electricity,subcategory,Utilities Management,4657,78,0.016748980030062272
+S:Structural,Structural,subcategory,Maintenance Request,4590,89,0.019389978213507627
+S:Contact Information,Contact Information,subcategory,General Inquiries,4723,91,0.019267414778742324
+S:Positive,Positive,subcategory,Feedback,4563,84,0.018408941485864562
+S:Lease Terms,Lease Terms,subcategory,Lease/Rent Inquiries,4648,85,0.018287435456110154
+S:Evictions,Evictions,subcategory,Property Management,4655,97,0.02083780880773362
+S:Suggestions,Suggestions,subcategory,Feedback,4625,85,0.018378378378378378
+S:Plumbing,Plumbing,subcategory,Maintenance Request,4630,67,0.014470842332613391
+C:Property Inquiry,Property Inquiry,category,Property Inquiry,0,0,
+C:General Inquiries,General Inquiries,category,General Inquiries,0,0,
+C:Complaints,Complaints,category,Complaints,0,0,
+C:Sales,Sales,category,Sales,0,0,
+C:Maintenance Request,Maintenance Request,category,Maintenance Request,0,0,
+C:Lease/Rent Inquiries,Lease/Rent Inquiries,category,Lease/Rent Inquiries,0,0,
+C:Feedback,Feedback,category,Feedback,0,0,
+C:Document Requests,Document Requests,category,Document Requests,0,0,
+C:Utilities Management,Utilities Management,category,Utilities Management,0,0,
+C:Property Management,Property Management,category,Property Management,0,0,

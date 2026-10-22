@@ -5,7 +5,7 @@
 | {{FILE_NAME}} | real_estate_customer_care.csv |
 | {{FILE_SIZE_KB}} | 26.279,0 |
 | {{SHA256_SHORT}} | 310f41b7f3325d02... |
-| {{INGEST_DATE}} | 2026-09-30 |
+| {{INGEST_DATE}} | 2026-10-13 |
 | {{N_ROWS_RAW}} | 231.685 |
 | {{N_COLS_RAW}} | 10 |
 | {{DATE_FORMAT}} | dd/MM/yyyy (bagian1>12=17511, bagian2>12=0) |
@@ -64,6 +64,16 @@
 - fig_4_7_monthly_trend.png
 - fig_4_8_sla_by_category.png
 - fig_4_9_heatmap_dow_hour.png
+- fig_5_1_breach_drivers.png
+- fig_5_2_roc_pr_curves.png
+- fig_5_3_metric_comparison.png
+- fig_5_4_feature_importance.png
+- fig_5_5_gain_confusion.png
+- fig_5_6_scale_test.png
+- fig_6_1_bipartite_network.png
+- fig_6_2_pagerank_teams.png
+- fig_6_3_team_similarity.png
+- fig_6_4_hotspot_subgraph.png
 
 ## Tabel (outputs/tables/)
 - dist_assigned_to.md
@@ -73,4 +83,8 @@
 - dist_sla_status.md
 - dist_status.md
 - dist_subcategory.md
+- graph_team_centrality.md
+- ml_ablation.md
+- ml_comparison.md
+- ml_dataset_split.md
 - sla_by_category.md

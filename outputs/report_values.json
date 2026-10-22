@@ -2,7 +2,7 @@
   "FILE_NAME": "real_estate_customer_care.csv",
   "FILE_SIZE_KB": "26.279,0",
   "SHA256_SHORT": "310f41b7f3325d02...",
-  "INGEST_DATE": "2026-09-30",
+  "INGEST_DATE": "2026-10-13",
   "N_ROWS_RAW": "231.685",
   "N_COLS_RAW": 10,
   "DATE_FORMAT": "dd/MM/yyyy (bagian1>12=17511, bagian2>12=0)",

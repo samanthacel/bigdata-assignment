@@ -1,0 +1,212 @@
+{
+  "ablation": [
+    {
+      "set": "A. Klasifikasi + tim",
+      "n_features": 5,
+      "roc_auc": 0.7047146968873996,
+      "pr_auc": 0.20302845089793634,
+      "recall_at_5pct": 0.2878980891719745
+    },
+    {
+      "set": "B. A + fitur waktu",
+      "n_features": 9,
+      "roc_auc": 0.7649463871170326,
+      "pr_auc": 0.21120226496500036,
+      "recall_at_5pct": 0.3070063694267516
+    },
+    {
+      "set": "C. B + beban kerja (lengkap)",
+      "n_features": 13,
+      "roc_auc": 0.843085454827726,
+      "pr_auc": 0.26221092140688684,
+      "recall_at_5pct": 0.3974522292993631
+    },
+    {
+      "set": "D. C tanpa batch_size",
+      "n_features": 12,
+      "roc_auc": 0.8412169381845711,
+      "pr_auc": 0.26472346510803807,
+      "recall_at_5pct": 0.4140127388535032
+    }
+  ],
+  "engine": "scikit-learn",
+  "sklearn_version": "1.9.1",
+  "load_sec": 0.3456257089999326,
+  "models": {
+    "logistic_regression": {
+      "engine": "scikit-learn",
+      "best_params": {
+        "C": 100.0
+      },
+      "estimator": "LogisticRegression",
+      "fit_sec": 0.5625049579998631,
+      "predict_sec": 0.041138375000173255,
+      "valid_pr_auc": 0.1969936314146621,
+      "test": {
+        "n": 46202,
+        "positives": 785,
+        "base_rate": 0.0169906064672525,
+        "roc_auc": 0.7972205194356781,
+        "pr_auc": 0.19358667646984237,
+        "threshold": 0.9439308571401167,
+        "precision": 0.5612648221343873,
+        "recall": 0.18089171974522292,
+        "f1": 0.27360308285163776,
+        "accuracy": 0.983680360157569,
+        "tp": 142,
+        "fp": 111,
+        "fn": 643,
+        "tn": 45306,
+        "precision_at_5pct": 0.0987012987012987,
+        "recall_at_5pct": 0.29044585987261146,
+        "lift_at_5pct": 5.809168665729176
+      }
+    },
+    "random_forest": {
+      "engine": "scikit-learn",
+      "best_params": {
+        "max_depth": 12
+      },
+      "estimator": "RandomForestClassifier",
+      "fit_sec": 2.0447567510000226,
+      "predict_sec": 0.08870954100007111,
+      "valid_pr_auc": 0.21480482477381468,
+      "test": {
+        "n": 46202,
+        "positives": 785,
+        "base_rate": 0.0169906064672525,
+        "roc_auc": 0.8559503308968878,
+        "pr_auc": 0.2343937054236415,
+        "threshold": 0.6935650494492908,
+        "precision": 0.3006134969325153,
+        "recall": 0.24968152866242038,
+        "f1": 0.27279053583855256,
+        "accuracy": 0.9773819315181161,
+        "tp": 196,
+        "fp": 456,
+        "fn": 589,
+        "tn": 44961,
+        "precision_at_5pct": 0.13722943722943723,
+        "recall_at_5pct": 0.40382165605095544,
+        "lift_at_5pct": 8.076782750158547
+      }
+    },
+    "gbt": {
+      "engine": "scikit-learn",
+      "best_params": {
+        "max_depth": 6
+      },
+      "estimator": "HistGradientBoostingClassifier",
+      "fit_sec": 1.184603208999988,
+      "predict_sec": 0.07105487500007257,
+      "valid_pr_auc": 0.24991479893994475,
+      "test": {
+        "n": 46202,
+        "positives": 785,
+        "base_rate": 0.0169906064672525,
+        "roc_auc": 0.843085454827726,
+        "pr_auc": 0.26221092140688684,
+        "threshold": 0.8466171519628523,
+        "precision": 0.44742729306487694,
+        "recall": 0.25477707006369427,
+        "f1": 0.3246753246753247,
+        "accuracy": 0.9819921215531795,
+        "tp": 200,
+        "fp": 247,
+        "fn": 585,
+        "tn": 45170,
+        "precision_at_5pct": 0.13506493506493505,
+        "recall_at_5pct": 0.3974522292993631,
+        "lift_at_5pct": 7.949388700471503
+      },
+      "permutation_importance_pr_auc": {
+        "team_load_24h": 0.185676932417698,
+        "assigned_to": 0.16368463875288938,
+        "all_load_7d": 0.07717543593967809,
+        "batch_size": 0.037106173835598055,
+        "created_dow": 0.03547865803585095,
+        "all_load_1h": 0.016146703846319926,
+        "channel": 0.01452282615336963,
+        "created_hour": 0.00510102432731252,
+        "is_weekend": 0.0007100916546409023,
+        "case_type": 0.0,
+        "is_business_hour": -8.861672104972426e-06,
+        "category": -0.0007031810142251368,
+        "subcategory": -0.0030400842889801347
+      }
+    }
+  },
+  "best_by_valid": "gbt",
+  "out_of_time": {
+    "model": "gbt",
+    "params": {
+      "max_depth": 6
+    },
+    "cutoff": "2024-03-01",
+    "train_rows": 184183,
+    "test_rows": 47502,
+    "roc_auc": 0.5969849988949557,
+    "pr_auc": 0.12128764498054306,
+    "base_rate": 0.035493242389794115,
+    "recall_at_5pct": 0.14887307236061684,
+    "lift_at_5pct": 2.977586814010114
+  },
+  "tuning": [
+    {
+      "engine": "sklearn",
+      "model": "logistic_regression",
+      "C": 100.0,
+      "fit_sec": 0.5625049579998631,
+      "valid_pr_auc": 0.1969936314146621,
+      "valid_roc_auc": 0.7902091187108471
+    },
+    {
+      "engine": "sklearn",
+      "model": "logistic_regression",
+      "C": 1.0,
+      "fit_sec": 0.478599832999862,
+      "valid_pr_auc": 0.1954706095074151,
+      "valid_roc_auc": 0.7903244805292676
+    },
+    {
+      "engine": "sklearn",
+      "model": "logistic_regression",
+      "C": 0.01,
+      "fit_sec": 0.3130886669998745,
+      "valid_pr_auc": 0.17960477392851817,
+      "valid_roc_auc": 0.7904493453327304
+    },
+    {
+      "engine": "sklearn",
+      "model": "random_forest",
+      "max_depth": 8,
+      "fit_sec": 1.3474819590001061,
+      "valid_pr_auc": 0.20798823385935233,
+      "valid_roc_auc": 0.8242146666861148
+    },
+    {
+      "engine": "sklearn",
+      "model": "random_forest",
+      "max_depth": 12,
+      "fit_sec": 2.0447567510000226,
+      "valid_pr_auc": 0.21480482477381468,
+      "valid_roc_auc": 0.8377370829018316
+    },
+    {
+      "engine": "sklearn",
+      "model": "gbt",
+      "max_depth": 4,
+      "fit_sec": 1.2491150839998681,
+      "valid_pr_auc": 0.2471316052376922,
+      "valid_roc_auc": 0.8311544425129075
+    },
+    {
+      "engine": "sklearn",
+      "model": "gbt",
+      "max_depth": 6,
+      "fit_sec": 1.184603208999988,
+      "valid_pr_auc": 0.24991479893994475,
+      "valid_roc_auc": 0.8314406370624373
+    }
+  ]
+}

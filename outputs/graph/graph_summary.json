@@ -1,0 +1,407 @@
+{
+  "nodes_total": 84,
+  "edges_total": 973,
+  "n_team": 24,
+  "n_subcategory": 50,
+  "n_category": 10,
+  "edges_team_subcategory": 923,
+  "edges_subcategory_category": 50,
+  "bipartite_density": 0.7691666666666667,
+  "connected_components": 1,
+  "teams_full_coverage_50": 15,
+  "team_degree_min_max": [
+    4,
+    50
+  ],
+  "sub_degree_min_max": [
+    16,
+    22
+  ],
+  "louvain_communities": 3,
+  "modularity": 0.00321419347484273,
+  "cosine_big_teams_min_mean": [
+    0.9610859193728479,
+    0.9865244390122186
+  ],
+  "n_big_teams": 9,
+  "pagerank_iterations": 40,
+  "pagerank_last_delta": 0.0010556711485722506,
+  "pagerank_max_abs_diff_spark_vs_networkx": 0.00013776845255902836,
+  "base_breach_rate": 0.017087856356691196,
+  "hotspot_edges": 53,
+  "hotspot_breaches": 227,
+  "hotspot_cases": 3169,
+  "hotspot_share_of_breaches": 0.05733771154331902,
+  "hotspot_share_of_cases": 0.013678054254699269,
+  "top_team_pagerank_breach": [
+    {
+      "label": "Call Center",
+      "cases": 171402,
+      "breaches": 2249,
+      "breach_rate": 0.01312120045273684,
+      "pagerank_breach_spark": 0.24999646333508801,
+      "pagerank_volume_spark": 0.3252243014455755,
+      "risk_concentration": 0.7686893698407207,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Property Leasing",
+      "cases": 404,
+      "breaches": 304,
+      "breach_rate": 0.7524752475247525,
+      "pagerank_breach_spark": 0.035512248117692755,
+      "pagerank_volume_spark": 0.0027881926505740995,
+      "risk_concentration": 12.736655091024879,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Property Valuation",
+      "cases": 16069,
+      "breaches": 247,
+      "breach_rate": 0.015371211649760408,
+      "pagerank_breach_spark": 0.02921483171425661,
+      "pagerank_volume_spark": 0.032321124832547454,
+      "risk_concentration": 0.9038927904154251,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Finance Department",
+      "cases": 306,
+      "breaches": 169,
+      "breach_rate": 0.5522875816993464,
+      "pagerank_breach_spark": 0.020658074722253603,
+      "pagerank_volume_spark": 0.002603865331383231,
+      "risk_concentration": 7.933618714175044,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Real Estate Sales",
+      "cases": 583,
+      "breaches": 143,
+      "breach_rate": 0.24528301886792453,
+      "pagerank_breach_spark": 0.01786747904001559,
+      "pagerank_volume_spark": 0.0031268828084804385,
+      "risk_concentration": 5.71415052446388,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Real Estate Compliance",
+      "cases": 1092,
+      "breaches": 121,
+      "breach_rate": 0.1108058608058608,
+      "pagerank_breach_spark": 0.015394169596170862,
+      "pagerank_volume_spark": 0.004086979259170807,
+      "risk_concentration": 3.766637562847366,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Real Estate Financial Reports",
+      "cases": 3638,
+      "breaches": 119,
+      "breach_rate": 0.03271028037383177,
+      "pagerank_breach_spark": 0.01515742275842679,
+      "pagerank_volume_spark": 0.008888138611781178,
+      "risk_concentration": 1.705354002730753,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Property Investment",
+      "cases": 3620,
+      "breaches": 101,
+      "breach_rate": 0.027900552486187846,
+      "pagerank_breach_spark": 0.013137438845419786,
+      "pagerank_volume_spark": 0.00885171927934976,
+      "risk_concentration": 1.4841680390913676,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Lease Renewals",
+      "cases": 22124,
+      "breaches": 88,
+      "breach_rate": 0.0039775809076116435,
+      "pagerank_breach_spark": 0.011714047754871011,
+      "pagerank_volume_spark": 0.04374630232830426,
+      "risk_concentration": 0.26777229460355817,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Property Documentation",
+      "cases": 3369,
+      "breaches": 85,
+      "breach_rate": 0.02523003858711784,
+      "pagerank_breach_spark": 0.011397549819433701,
+      "pagerank_volume_spark": 0.008375046311732057,
+      "risk_concentration": 1.3608939455615445,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Property Management",
+      "cases": 3435,
+      "breaches": 68,
+      "breach_rate": 0.019796215429403203,
+      "pagerank_breach_spark": 0.009575132028975955,
+      "pagerank_volume_spark": 0.008506886985722044,
+      "risk_concentration": 1.1255741430498434,
+      "degree": 50.0,
+      "betweenness": 0.03385021832809095
+    },
+    {
+      "label": "Lease Administration",
+      "cases": 57,
+      "breaches": 44,
+      "breach_rate": 0.7719298245614035,
+      "pagerank_breach_spark": 0.006923049336471346,
+      "pagerank_volume_spark": 0.00213508162520986,
+      "risk_concentration": 3.2425220912998443,
+      "degree": 34.0,
+      "betweenness": 0.015029082180841842
+    }
+  ],
+  "top_sub_pagerank_breach": [
+    {
+      "label": "Evictions",
+      "category": "Property Management",
+      "cases": 4655,
+      "breaches": 97,
+      "breach_rate": 0.02083780880773362,
+      "pagerank_breach_spark": 0.012145635864686935,
+      "risk_concentration": 1.167158822343966
+    },
+    {
+      "label": "Pets Policy",
+      "category": "General Inquiries",
+      "cases": 4653,
+      "breaches": 91,
+      "breach_rate": 0.01955727487642381,
+      "pagerank_breach_spark": 0.012105094526608672,
+      "risk_concentration": 1.1047804271762398
+    },
+    {
+      "label": "Post-Sale Service",
+      "category": "Sales",
+      "cases": 4751,
+      "breaches": 96,
+      "breach_rate": 0.0202062723637129,
+      "pagerank_breach_spark": 0.011815827469169742,
+      "risk_concentration": 1.1354633881659884
+    },
+    {
+      "label": "Contact Information",
+      "category": "General Inquiries",
+      "cases": 4723,
+      "breaches": 91,
+      "breach_rate": 0.019267414778742324,
+      "pagerank_breach_spark": 0.01149375192683757,
+      "risk_concentration": 1.1153974584169615
+    },
+    {
+      "label": "Rent Collection",
+      "category": "Property Management",
+      "cases": 4656,
+      "breaches": 91,
+      "breach_rate": 0.0195446735395189,
+      "pagerank_breach_spark": 0.011417905016043924,
+      "risk_concentration": 1.130915488507906
+    },
+    {
+      "label": "Amenities Issues",
+      "category": "Complaints",
+      "cases": 4645,
+      "breaches": 86,
+      "breach_rate": 0.018514531754574813,
+      "pagerank_breach_spark": 0.01136286319995745,
+      "risk_concentration": 1.0897006270868532
+    },
+    {
+      "label": "Lease Renewal",
+      "category": "Lease/Rent Inquiries",
+      "cases": 4657,
+      "breaches": 87,
+      "breach_rate": 0.018681554648915612,
+      "pagerank_breach_spark": 0.01130748073349945,
+      "risk_concentration": 1.083919741438699
+    },
+    {
+      "label": "Suggestions",
+      "category": "Feedback",
+      "cases": 4625,
+      "breaches": 85,
+      "breach_rate": 0.018378378378378378,
+      "pagerank_breach_spark": 0.011296289225876019,
+      "risk_concentration": 1.0682100414419415
+    },
+    {
+      "label": "Maintenance Delays",
+      "category": "Complaints",
+      "cases": 4683,
+      "breaches": 88,
+      "breach_rate": 0.018791373051462737,
+      "pagerank_breach_spark": 0.01116111208282378,
+      "risk_concentration": 1.0662375992990865
+    },
+    {
+      "label": "Electrical",
+      "category": "Maintenance Request",
+      "cases": 4732,
+      "breaches": 86,
+      "breach_rate": 0.018174133558748945,
+      "pagerank_breach_spark": 0.011150189113072698,
+      "risk_concentration": 1.053432394734489
+    }
+  ],
+  "top_hotspots": [
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Service Quality",
+      "cases": 25,
+      "breaches": 8,
+      "breach_rate": 0.32,
+      "wilson_low": 0.17204987516891146
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Plumbing",
+      "cases": 20,
+      "breaches": 5,
+      "breach_rate": 0.25,
+      "wilson_low": 0.11186005278940306
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Pets Policy",
+      "cases": 20,
+      "breaches": 5,
+      "breach_rate": 0.25,
+      "wilson_low": 0.11186005278940306
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Tenant Screening",
+      "cases": 29,
+      "breaches": 6,
+      "breach_rate": 0.20689655172413793,
+      "wilson_low": 0.09845936515585209
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "HVAC",
+      "cases": 23,
+      "breaches": 5,
+      "breach_rate": 0.21739130434782608,
+      "wilson_low": 0.09663835601719065
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Office Hours",
+      "cases": 20,
+      "breaches": 4,
+      "breach_rate": 0.2,
+      "wilson_low": 0.08065635327119998
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Negotiation",
+      "cases": 21,
+      "breaches": 4,
+      "breach_rate": 0.19047619047619047,
+      "wilson_low": 0.07667440615177303
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Structural",
+      "cases": 21,
+      "breaches": 4,
+      "breach_rate": 0.19047619047619047,
+      "wilson_low": 0.07667440615177303
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Gas",
+      "cases": 25,
+      "breaches": 4,
+      "breach_rate": 0.16,
+      "wilson_low": 0.06403347608577989
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Availability",
+      "cases": 28,
+      "breaches": 4,
+      "breach_rate": 0.14285714285714285,
+      "wilson_low": 0.05698912930701783
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Maintenance Records",
+      "cases": 28,
+      "breaches": 4,
+      "breach_rate": 0.14285714285714285,
+      "wilson_low": 0.05698912930701783
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Property Rules",
+      "cases": 21,
+      "breaches": 3,
+      "breach_rate": 0.14285714285714285,
+      "wilson_low": 0.049809217982134925
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Lease Terms",
+      "cases": 21,
+      "breaches": 3,
+      "breach_rate": 0.14285714285714285,
+      "wilson_low": 0.049809217982134925
+    },
+    {
+      "assigned_to": "Real Estate Financial Reports",
+      "subcategory": "Website/App Experience",
+      "cases": 71,
+      "breaches": 7,
+      "breach_rate": 0.09859154929577464,
+      "wilson_low": 0.048582206325328975
+    },
+    {
+      "assigned_to": "Real Estate Compliance",
+      "subcategory": "Floor Plans",
+      "cases": 22,
+      "breaches": 3,
+      "breach_rate": 0.13636363636363635,
+      "wilson_low": 0.04748917264236267
+    }
+  ],
+  "communities": [
+    {
+      "community": 0,
+      "n_team": 6,
+      "n_subcategory": 37,
+      "teams": "Call Center; Finance Department; Real Estate Advisory; Real Estate Compliance; Real Estate Consulting; Real Estate Support",
+      "top_categories": "Sales(5); Maintenance Request(5); Document Requests(4)"
+    },
+    {
+      "community": 1,
+      "n_team": 12,
+      "n_subcategory": 7,
+      "teams": "Building Maintenance; Facility Management; Home Buying Assistance; Home Inspections; Property Appraisal; Property Investment; Property Management; Property Sales; Property Valuation; Real Estate Events; Real Estate Financial Reports; Real Estate Sales",
+      "top_categories": "General Inquiries(2); Property Inquiry(1); Utilities Management(1)"
+    },
+    {
+      "community": 2,
+      "n_team": 6,
+      "n_subcategory": 6,
+      "teams": "Lease Administration; Lease Renewals; Property Documentation; Property Leasing; Property Procurement; Tenant Relations",
+      "top_categories": "Feedback(1); Property Management(1); Lease/Rent Inquiries(1)"
+    }
+  ]
+}

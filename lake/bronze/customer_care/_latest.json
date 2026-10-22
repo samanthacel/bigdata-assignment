@@ -20,9 +20,9 @@
     "Type",
     "AssignedTo"
   ],
-  "ingest_date": "2026-09-30",
-  "ingested_at_utc": "2026-09-30T16:50:30.261896+00:00",
-  "local_csv": "/home/jovyan/work/lake/bronze/customer_care/ingest_date=2026-09-30/data/real_estate_customer_care.csv",
-  "s3a_csv": "s3a://bronze/customer_care/ingest_date=2026-09-30/data/real_estate_customer_care.csv",
+  "ingest_date": "2026-10-13",
+  "ingested_at_utc": "2026-10-13T04:14:54.558143+00:00",
+  "local_csv": "/home/jovyan/work/lake/bronze/customer_care/ingest_date=2026-10-13/data/real_estate_customer_care.csv",
+  "s3a_csv": "s3a://bronze/customer_care/ingest_date=2026-10-13/data/real_estate_customer_care.csv",
   "minio_uploaded": true
 }

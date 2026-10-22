@@ -1,4 +1,3 @@
-"""Konfigurasi & utilitas bersama untuk seluruh pipeline."""
 import glob
 import json
 import os

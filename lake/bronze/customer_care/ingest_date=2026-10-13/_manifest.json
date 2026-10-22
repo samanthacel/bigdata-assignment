@@ -1,0 +1,28 @@
+{
+  "dataset": "customer_care",
+  "source": "Kaggle",
+  "source_url": "https://www.kaggle.com/datasets/akshayahk/real-estate-customer-care-dataset",
+  "original_file": "real_estate_customer_care.csv",
+  "original_size_bytes": 26909732,
+  "sha256": "310f41b7f3325d0227d1358b89f138f0294b0e915e0cefa35915ef7eec8acf8e",
+  "encoding_detected": "utf-8-sig",
+  "n_rows": 231685,
+  "n_cols": 10,
+  "columns": [
+    "CaseNumber",
+    "SLAStatus",
+    "ClosedDate",
+    "CreatedDate",
+    "Channel",
+    "Category",
+    "Status",
+    "SubCategory",
+    "Type",
+    "AssignedTo"
+  ],
+  "ingest_date": "2026-10-13",
+  "ingested_at_utc": "2026-10-13T04:14:54.558143+00:00",
+  "local_csv": "/home/jovyan/work/lake/bronze/customer_care/ingest_date=2026-10-13/data/real_estate_customer_care.csv",
+  "s3a_csv": "s3a://bronze/customer_care/ingest_date=2026-10-13/data/real_estate_customer_care.csv",
+  "minio_uploaded": true
+}

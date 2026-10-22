@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
 run() { echo -e "\n===== $1 ====="; docker compose exec -T -w /home/jovyan/work spark python "src/$1"; }

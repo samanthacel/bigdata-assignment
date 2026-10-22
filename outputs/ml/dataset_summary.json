@@ -1,0 +1,86 @@
+{
+  "silver_rows": 231685,
+  "ml_rows": 231685,
+  "positives": 3959,
+  "negatives": 227726,
+  "positive_rate": 0.017087856356691196,
+  "imbalance_ratio": 57.521091184642586,
+  "n_raw_features": 13,
+  "cat_features": [
+    "channel",
+    "category",
+    "subcategory",
+    "case_type",
+    "assigned_to",
+    "created_hour",
+    "created_dow"
+  ],
+  "num_features": [
+    "is_weekend",
+    "is_business_hour",
+    "batch_size",
+    "team_load_24h",
+    "all_load_1h",
+    "all_load_7d"
+  ],
+  "excluded_leaky_columns": [
+    "closed_ts",
+    "closed_date",
+    "resolution_hours",
+    "resolution_hours_clean",
+    "status",
+    "is_closed",
+    "sla_status",
+    "sla_status_raw",
+    "flag_outlier_resolution"
+  ],
+  "splits": {
+    "test": {
+      "rows": 46202,
+      "breach": 785,
+      "rate": 0.0169906064672525
+    },
+    "train": {
+      "rows": 162234,
+      "breach": 2778,
+      "rate": 0.01712341432745294
+    },
+    "valid": {
+      "rows": 23249,
+      "breach": 396,
+      "rate": 0.017032990666265214
+    }
+  },
+  "load_feature_p50_p99_max": {
+    "batch_size": [
+      2,
+      115,
+      175
+    ],
+    "team_load_24h": [
+      277,
+      44846,
+      46924
+    ],
+    "all_load_1h": [
+      46,
+      5445,
+      5536
+    ],
+    "all_load_7d": [
+      2485,
+      53846,
+      55076
+    ]
+  },
+  "out_of_time": {
+    "after_2024_03": {
+      "rows": 47502,
+      "rate": 0.035493242389794115
+    },
+    "before_2024_03": {
+      "rows": 184183,
+      "rate": 0.012340986953193292
+    }
+  }
+}

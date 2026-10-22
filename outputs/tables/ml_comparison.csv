@@ -1,0 +1,7 @@
+engine,model,params,roc_auc,pr_auc,precision,recall,f1,threshold,recall_at_5pct,precision_at_5pct,lift_at_5pct,accuracy,fit_sec,predict_sec
+Spark MLlib,Logistic Regression,regParam=0.0,0.7973,0.1991,0.5618,0.1796,0.2722,0.9433,0.2892,0.0983,5.7837,0.9837,7.0595,0.088
+Spark MLlib,Random Forest,maxDepth=8,0.8342,0.1768,0.4148,0.1643,0.2354,0.7666,0.358,0.1216,7.1595,0.9819,11.5234,0.7079
+Spark MLlib,Gradient Boosting (GBTClassifier),maxDepth=6,0.819,0.2117,0.4155,0.2191,0.2869,0.8637,0.372,0.1264,7.4398,0.9815,26.1996,0.3001
+scikit-learn,Logistic Regression,C=100.0,0.7972,0.1936,0.5613,0.1809,0.2736,0.9439,0.2904,0.0987,5.8092,0.9837,0.5625,0.0411
+scikit-learn,Random Forest,max_depth=12,0.856,0.2344,0.3006,0.2497,0.2728,0.6936,0.4038,0.1372,8.0768,0.9774,2.0448,0.0887
+scikit-learn,Gradient Boosting (HistGB),max_depth=6,0.8431,0.2622,0.4474,0.2548,0.3247,0.8466,0.3975,0.1351,7.9494,0.982,1.1846,0.0711
